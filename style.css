@@ -35,6 +35,54 @@ body {
 }
 
 /* ==========================================================================
+   NUEVAS BURBUJAS FLOTANTES A LA IZQUIERDA (Estilos Vistosos)
+   ========================================================================== */
+.social-bubbles-left {
+    position: fixed;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999; /* Asegura que siempre esté por encima de todo */
+}
+
+.bubble {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* Colores de identidad de cada red */
+.bubble.facebook {
+    background-color: #1877F2;
+}
+
+.bubble.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.bubble.tiktok {
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animaciones interactivas muy vistosas */
+.bubble:hover {
+    transform: scale(1.18) translateX(6px); /* Crece y salta un poco a la derecha */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
    Hero Section (Encabezado)
    ========================================================================== */
 .hero {
@@ -215,7 +263,7 @@ body {
 }
 
 /* ==========================================================================
-   Footer (Contacto, Redes y Ubicación)
+   Footer (Contacto y Ubicación)
    ========================================================================== */
 .footer {
     background-color: var(--primary-blue);
@@ -244,9 +292,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* ==========================================================================
-   Nuevos Botones de Redes Sociales
-   ========================================================================== */
 .social-link {
     color: var(--text-light);
     text-decoration: none;
@@ -257,51 +302,10 @@ body {
     text-decoration: underline;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: var(--text-light);
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.social-icon:hover {
-    transform: translateY(-5px); 
-}
-
-.social-icon.facebook:hover {
-    background-color: #1877F2;
-    color: #FFFFFF;
-}
-
-.social-icon.instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: #FFFFFF;
-}
-
-.social-icon.tiktok:hover {
-    background-color: #000000;
-    color: #FFFFFF;
-}
-
 .payment-note {
     margin-top: 15px;
     font-style: italic;
-    color: var(--light-blue);
+    color: var(--accent-yellow);
 }
 
 .footer-bottom {
@@ -313,7 +317,7 @@ body {
 }
 
 /* ==========================================================================
-   Responsive
+   Responsive (Adaptación para Celulares)
    ========================================================================== */
 @media (max-width: 768px) {
     .logo-title {
@@ -321,5 +325,16 @@ body {
     }
     .highlight-yellow {
         font-size: 2.2rem;
+    }
+    
+    /* En celulares reducimos un poco el tamaño de las burbujas para optimizar pantalla */
+    .social-bubbles-left {
+        left: 12px;
+        gap: 12px;
+    }
+    .bubble {
+        width: 46px;
+        height: 46px;
+        font-size: 1.3rem;
     }
 }
