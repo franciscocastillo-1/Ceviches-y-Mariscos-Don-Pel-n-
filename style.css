@@ -328,13 +328,21 @@ body {
     }
     
     /* En celulares reducimos un poco el tamaño de las burbujas para optimizar pantalla */
+ /* --- CONFIGURACIÓN PARA CELULARES (Por defecto) --- */
+.social-bubbles-left {
+    position: fixed;
+    left: 10px;           /* Separación del borde izquierdo */
+    top: 20%;             /* Se ubican en el 20% de la altura, fuera de la parte superior */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+/* --- CONFIGURACIÓN PARA COMPUTADORAS (Pantallas grandes) --- */
+@media (min-width: 768px) {
     .social-bubbles-left {
-        left: 12px;
-        gap: 12px;
-    }
-    .bubble {
-        width: 46px;
-        height: 46px;
-        font-size: 1.3rem;
+        top: 50%;                 /* Se centra a la mitad */
+        transform: translateY(-50%); /* El truco matemático para centrado perfecto */
     }
 }
